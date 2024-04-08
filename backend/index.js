@@ -10,7 +10,13 @@ const app = express();
 app.use(express.json());
 
 // Middleware for enabling CORS
-app.use(cors());
+app.use(cors(
+  {
+    origin: ["https://mern-book-jd.vercel.app/"]
+    methods: ["POST", "GET"]
+    credentials: true
+  }
+));
 
 app.get("/", (request, response) => {
   console.log(request);
